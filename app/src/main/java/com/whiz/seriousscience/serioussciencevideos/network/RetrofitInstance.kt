@@ -8,6 +8,7 @@ class RetrofitInstance {
     companion object {
         val url = url().getURL()
 
+        //create instance retrofit
         fun getRetrofitInstance(): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(url)

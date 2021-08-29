@@ -17,13 +17,6 @@ import com.whiz.seriousscience.serioussciencevideos.network.url
 
 
 class RecyclerViewAdapter(val items: List<VideoInformation>) : RecyclerView.Adapter<RecyclerViewAdapter.VideoViewHolder>() {
-    //var items = items
-    //var items = ArrayList<VideoInformation>()
-
-    /*fun setUpdatedData(items : ArrayList<VideoInformation>) {
-        this.items = items
-        notifyDataSetChanged()
-    }*/
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -42,6 +35,7 @@ class RecyclerViewAdapter(val items: List<VideoInformation>) : RecyclerView.Adap
         return items.size
     }
 
+    //Set Data from video on cells
     class VideoViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val image = itemView.findViewById<ImageView>(R.id.iv_image)
         val title = itemView.findViewById<TextView>(R.id.tv_title)
@@ -56,6 +50,11 @@ class RecyclerViewAdapter(val items: List<VideoInformation>) : RecyclerView.Adap
                 .load(url)
                 .into(image)
 
+            goToDescriptionActivity(itemView,data)
+        }
+
+        //Function pass to DescriptionActivity
+        private fun goToDescriptionActivity(itemView: View, data: VideoInformation) {
             itemView.setOnClickListener{
                 var intent = Intent(itemView.context,DescriptionActivity::class.java)
                 var video_desc = VideoInformation(data.title, data.author,
@@ -67,5 +66,6 @@ class RecyclerViewAdapter(val items: List<VideoInformation>) : RecyclerView.Adap
             }
         }
     }
+
 
 }
