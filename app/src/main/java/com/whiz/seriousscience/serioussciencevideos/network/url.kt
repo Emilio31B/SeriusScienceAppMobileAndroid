@@ -16,12 +16,12 @@ class url() {
 
     //get absolute url
     fun getURL():String {
-        return url;
+        return url
     }
 
     //Get preview image from video with its code
     fun getURLSpecificImg(id: String): String {
-        return url_specific_img + id + end_of_url;
+        return url_specific_img + id + end_of_url
     }
 
     //return parameter url_code
